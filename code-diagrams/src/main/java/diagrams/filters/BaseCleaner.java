@@ -6,10 +6,10 @@ public abstract class BaseCleaner {
     }
 
     public static String removeAllBlankLines(String code){
-        return code.replace("\n", "");
+        return code.replace("\n", " ");
     }
 
-    public static String removeAllBlankLinesAnSpaces(String code){
+    public static String removeAllBlankLinesAndSpaces(String code){
         return removeAllUselessSpaces(removeAllBlankLines(code));
     }
 
