@@ -15,3 +15,7 @@ P
 ,src/main/java/diagrams/entity/CodeBlock.java,d\9\d9b348745b77a657dc7455127d9399c1a2174758
 \
 ,src/main/java/diagrams/entity/LogicType.java,6\f\6fb305d8ef2dd47f918a43839872c611b788023f
+U
+%src/main/java/diagrams/TestClass.java,9\a\9a412e2b43520c36828898a2e966faf6d03540f6
+c
+3src/main/java/diagrams/diagrams/impl/Fluxogram.java,e\b\ebd3171a481555977f265d9f1feaf58c17f70220

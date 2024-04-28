@@ -1,26 +1,27 @@
 package diagrams;
 
-
-import static diagrams.filters.impl.JavaCleaner.baseJavaFilter;
+import diagrams.diagrams.impl.Fluxogram;
 
 public class Main {
     public static void main(String[] args) {
-        String code = "package com;\n" +
+        String code = "package diagrams;\n" +
                 "\n" +
-                "import static com.filters.BaseCleaner.removeAllBlankLinesAnSpaces;\n" +
-                "\n" +
-                "public class Main {\n" +
+                "public class TestClass {\n" +
                 "    public static void main(String[] args) {\n" +
-                "        System.out.println(\"Hello world!\");\n" +
+                "        System.out.println(\"Hello\");\n" +
+                "\n" +
+                "        int i = 0;\n" +
+                "\n" +
+                "        if(i == 2) {\n" +
+                "            System.out.println(\"Nice\");\n" +
+                "        } else {\n" +
+                "            System.out.println(\"Great\");\n" +
+                "        }\n" +
                 "    }\n" +
                 "}";
 
-        var result = baseJavaFilter(code);
-
-        System.out.println("\n==============================\n");
-
-        System.out.println(result);
-
-        System.out.println("\n==============================\n");
+        for(var item : Fluxogram.getFluxogramFromCode(code)){
+            System.out.println(item);
+        }
     }
 }

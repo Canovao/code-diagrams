@@ -4,11 +4,14 @@ import lombok.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class CodeBlock {
     private String code = "";
+
+    public CodeBlock(String code) {
+        this.code = code.trim();
+    }
 
     public void addChar(char c) {
         code = code + c;

@@ -1,6 +1,4 @@
 
-M
-java:S6126"2Replace this String concatenation with Text block.(¦ÒÕ™ÿÿÿÿÿ
-E	java:S106"+Replace this use of System.out by a logger.(‘¹˜øüÿÿÿÿ
-E	java:S106"+Replace this use of System.out by a logger.(®ıáëûÿÿÿÿ
-E	java:S106"+Replace this use of System.out by a logger.(‘¹˜øüÿÿÿÿ
+O
+java:S6126"2Replace this String concatenation with Text block.(¿ØÙÔ8¿×’¸ò1
+G	java:S106"+Replace this use of System.out by a logger.(Òà´Ç8í˜¸ò1
