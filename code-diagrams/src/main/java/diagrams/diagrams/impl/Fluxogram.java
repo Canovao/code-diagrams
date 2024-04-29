@@ -26,7 +26,7 @@ public abstract class Fluxogram extends BaseDiagram {
     private static void filterList(List<LogicBlock> list) {
         list.removeIf(item -> item.getLogicType() == LogicType.BLOCK_START ||
                 item.getLogicType() == LogicType.BLOCK_END ||
-                item.getLogicType() == LogicType.STATEMENT);
+                item.getLogicType() == LogicType.END_STATEMENT);
     }
 
     private static <T> T getPreviousBefore(List<T> list, T item) {
@@ -66,14 +66,28 @@ public abstract class Fluxogram extends BaseDiagram {
             }
 
             if(item.getLogicType() == LogicType.BLOCK_START) {
+                if(getPrevious(list, item).getCode().endsWith(")")) {
+                    if(getPrevious(list, item).getCode().startsWith("else")) {
+                        getPrevious(list, item).setLogicType(LogicType.ELSE);
+                    } else {
+                        getPrevious(list, item).setLogicType(LogicType.METHOD);
+                    }
+                }
+
+                if(getPrevious(list, item).getCode().endsWith("else"))
+                    getPrevious(list, item).setLogicType(LogicType.METHOD);
+
                 getPrevious(list, item).setParent(getPreviousBefore(list, item));
                 getPrevious(list, item).setInside(getNext(list, item));
             }
 
             if(
                 item.getLogicType() == LogicType.BLOCK_END ||
-                item.getLogicType() == LogicType.STATEMENT
+                item.getLogicType() == LogicType.END_STATEMENT
             ) {
+                if(item.getLogicType() == LogicType.END_STATEMENT)
+                    getPrevious(list, item).setLogicType(LogicType.STATEMENT);
+
                 getPrevious(list, item).setParent(getPreviousBefore(list, item));
             }
         }

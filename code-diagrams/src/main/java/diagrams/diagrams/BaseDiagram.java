@@ -9,7 +9,7 @@ import java.util.List;
 public abstract class BaseDiagram {
     protected static LogicBlock identifyLogicBlockFromCodeBlock(CodeBlock codeBlock){
         if(codeBlock.getCode().equals(";")) {
-            return new LogicBlock(codeBlock.getCode(), LogicType.STATEMENT);
+            return new LogicBlock(codeBlock.getCode(), LogicType.END_STATEMENT);
         }
 
         if(codeBlock.getCode().equals("{")) {
@@ -252,6 +252,10 @@ public abstract class BaseDiagram {
 
         if(list.length > 1){
             return new LogicBlock(list[1], LogicType.EMPTY);
+        }
+
+        if(codeBlock.getCode().startsWith("public static void main(String[] args)")){
+            return new LogicBlock(codeBlock.getCode(), LogicType.MAIN);
         }
 
         return new LogicBlock(codeBlock.getCode(), LogicType.UNKNOWN);

@@ -3,7 +3,8 @@ package diagrams.entity;
 public enum LogicType {
     BLOCK_START, // {
     BLOCK_END, // }
-    STATEMENT, // ;
+    END_STATEMENT, // ;
+    STATEMENT, // before this -> ;
 
     IF, WHILE, DO_WHILE, FOR, SWITCH,
     CASE, DEFAULT, ELSE, ELSE_IF, TRY,
@@ -13,5 +14,5 @@ public enum LogicType {
     ANONYMOUS_CLASS, LAMBDA, BLOCK, EXPRESSION,
     VARIABLE, FIELD, METHOD, CONSTRUCTOR, PARAMETER,
     ARGUMENT, TYPE, LITERAL, OPERATOR, SEPARATOR,
-    COMMENT, EMPTY, UNKNOWN
+    COMMENT, EMPTY, MAIN, UNKNOWN
 }
