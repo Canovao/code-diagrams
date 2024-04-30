@@ -1,5 +1,7 @@
 package diagrams;
 
+import javax.swing.*;
+
 import diagrams.diagrams.impl.Fluxogram;
 
 public class Main {
@@ -23,5 +25,14 @@ public class Main {
         for(var item : Fluxogram.getFluxogramFromCode(code)){
             System.out.println(item);
         }
+
+        JFrame frame = new JFrame("Code Diagrams");
+        JPanel panel = new JPanel();
+        
+        panel.setSize(300, 300);
+        frame.setSize(500,300); 
+        frame.add(panel);
+
+        frame.setVisible(true);
     }
 }
